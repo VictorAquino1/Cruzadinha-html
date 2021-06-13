@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras Cruzadas</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(9, 27, 38);
+        }
+        .invi{
+            border: none;
+        }
+        .caixas{
+            width: 10px;
+            background-color: white;
+        }
+        #caça_palavras{
+            display: none;
+            text-align: center;
+            margin-left: 350px;
+            margin-top: -450px;
+            margin-right: 40px;
+            padding: 0px;
+            float: right;
+            padding-top: 10px;
+            
+        }
+        #tabela{
+            border: 3px solid black;
+            background-color: white;
+        }
+        #perguntas{
+            margin-left: 15px;
+            margin-top: 10px;
+            float: left;
+            
+            padding-right: 50px;
+            width: 400px;
+        }
+        input{
+            text-transform: uppercase;
+        }
+        #inicio{
+            text-align: center;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgb(240, 242, 240);
+            padding: 200px;
+            color: black;
+            width: 700px;
+            border-radius: 80px;
+            border: 4px solid black;
+        }
+        #instrucoes{
+            text-align: center;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgb(240, 242, 240);
+            padding: 100px;
+            color: black;
+            width: 700px;
+            border-radius: 80px;
+            border: 4px solid black;
+        }
+        #hud_jogo{
+            display: inline-block;
+            display: none ;
+            border: 5px solid black;
+            background-color: rgb(240, 242, 240);
+            clear: both;
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 550px;
+            border-radius: 30px;
+        }
+        #finalizar_tentativa{
+            
+            text-align: center;
+            padding-top: 15px;
+            font-weight: bold;
+        }
+        button{
+            border-radius: 5px;
+            padding: 5px;
+            background-color: #64b7cc;
+            color: black;
+            border: solid;
+        }
+        #final_jogo{
+            background-color: white;
+            text-align: center;
+            margin-top: 200px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="inicio" style="display: block;">
+        <h1>Palavras Cruzadas</h1>  <br>
+        <button onclick="iniciar()">Iniciar o jogo</button>
+    </div>
+
+    <div id="instrucoes" style="display: none;">
+        <h1>COMO JOGAR?</h1>
+        Após ler a pergunta na tela, utilize as palavras cruzadas para escrever sua resposta. <br>
+        Se divirta!!
+<br>
+        <button onclick="comecar_jogo()">INICIAR TENTATIVA</button>
+    </div>
+
+
+<div id="hud_jogo"  >
+
+<div id="perguntas">
+    <h1>PERGUNTAS</h1>
+    <span id="palavra_1">1)Qual a sigla de Central Process Unit?</span> <br>
+    2)Qual a sigla de Unidade Lógica e Aritmética? <br>
+    3)Por onde passa os dados antes de ir para o processador? <br>
+    4)Qual a siga de Random Access Memory? <br>
+    5)Normalmente é utilizada para armazenar firmwares? <br>
+    6)Memoria que mantém seus dados quando a energia é desligada? <br>
+    7)Memoria com função de armazenar grandes quantidades de informação <br>
+    8)Processador com dois núcleos<br>
+    9)Processor intel focado em desempenho<br>
+    10)Processador com quatro núcleos<br>
+    11)Tecnologia usada para fazer o boot de computadores <br>
+    12)Permite o acesso direto a memoria <br>
+    13)Usado para selecionar um dos circuitos integrados entre vários<br>
+    14)Usado para transferir memoria<br>
+    15)Usado para enviar e receber dados<br>
+    16)Processor intel de baixo custo<br>
+
+</div>
+    <!-- INICIO DA TABELA -->
+    <div id="caça_palavras">      
+        
+        <table border="2" id="tabela">
+            <!-- LINHA 1 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>3</td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                
+            </tr>
+            <!-- LINHA 2 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_3_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                
+            </tr>
+            <!-- LINHA 3 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_3_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>7</td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                
+            </tr>
+            <!-- LINHA 4 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_3_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            </tr>
+            <!-- LINHA 5 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>16</td>
+                <td><input id="palavra_3_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_3()"></td>
+                <td><input id="palavra_16_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_16()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            </tr>
+            <!-- LINHA 6 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>1</td>
+                <td class="invi"></td>
+                <td><input id="palavra_3_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_3()"></td>
+                <td class="invi"></td>
+                <td>12</td>
+                <td><input id="palavra_12_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_12()"></td>
+                <td><input id="palavra_12_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_12()"></td>
+                <td><input id="palavra_12_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_12()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td> 
+            </tr>
+            <!-- LINHA 7 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_1_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_1()"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_3_letra_6" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_6_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>14</td>
+            </tr>
+            <!-- LINHA 8 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_1_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_1()"></td>
+                <td>4</td>
+                <td><input id="palavra_3_letra_7" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_7_palavra_3()"></td>
+                <td><input id="palavra_4_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_4()"></td>
+                <td><input id="palavra_4_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_4()"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_14_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_14()"></td> 
+            </tr>
+            <!-- LINHA 9 -->
+            <tr>
+                <td class="invi"></td>
+                <td>2</td>
+                <td><input id="palavra_1_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_1()"></td>
+                <td><input id="palavra_2_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_2()"></td>
+                <td><input id="palavra_3_letra_8" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_8_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>9</td>
+                <td><input id="palavra_9_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_9()"></td>
+                <td><input id="palavra_9_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_9()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_14_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_14()"></td>
+            </tr>
+            <!-- LINHA 10 -->     
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_3_letra_9" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_9_palavra_3()"></td>
+                <td>10</td>
+            <td><input id="palavra_10_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_10()"></td>
+            <td><input id="palavra_10_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_10()"></td>
+            <td><input id="palavra_10_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_10()"></td>
+            <td><input id="palavra_10_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_10()"></td>
+            <td><input id="palavra_10_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_10()"></td>
+            <td><input id="palavra_10_letra_6" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_6_palavra_10()"></td>
+            <td><input id="palavra_10_letra_7" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_7_palavra_10()"></td>
+            <td><input id="palavra_10_letra_8" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_8_palavra_10()"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_14_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_14()"></td>
+            </tr>
+           <!--  LINHA 11 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_3_letra_10" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_10_palavra_3()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>8</td>
+            <td><input id="palavra_8_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_8()"></td>
+            <td><input id="palavra_8_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_8()"></td>
+            <td><input id="palavra_8_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_8()"></td>
+            <td><input id="palavra_8_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_8()"></td>
+            <td><input id="palavra_8_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_8()"></td>
+            <td><input id="palavra_8_letra_6" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_6_palavra_8()"></td>
+            <td><input id="palavra_8_letra_7" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_7_palavra_8()"></td>
+            <td><input id="palavra_8_letra_8" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_8_palavra_8()"></td>
+            </tr>
+            <!-- LINHA 12 -->
+            <tr>
+                <td class="invi" class="invi"></td>
+                <td class="invi" class="invi"></td>
+                <td class="invi" class="invi"></td>
+                <td>5</td>
+                <td><input id="palavra_5_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_5()"></td>
+                <td><input id="palavra_5_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_5()"></td>
+                <td><input id="palavra_5_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_5()"></td>
+                <td class="invi" class="invi"></td>
+                <td><input id="palavra_7_letra_9" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_9_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_14_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_14()"></td> 
+            </tr>
+            <!-- LINHA 13 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>6</td>
+            <td><input id="palavra_3_letra_12" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_12_palavra_3()"></td>
+            <td><input id="palavra_6_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_6()"></td>
+            <td><input id="palavra_6_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_6()"></td>
+            <td><input id="palavra_6_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_6()"></td>
+            <td><input id="palavra_6_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_6()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_14_letra_6" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_6_palavra_14()"></td>            
+            </tr>
+            <!-- LINHA 14 -->
+            <tr>
+                <td>11</td>
+                <td><input id="palavra_11_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_11()"></td>
+                <td><input id="palavra_11_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_11()"></td>
+                <td><input id="palavra_11_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_11()"></td>
+                <td><input id="palavra_3_letra_13" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_13_palavra_3()"></td>
+                <td><input id="palavra_11_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_11()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_11" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_11_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_14_letra_7" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_7_palavra_14()"></td>
+            </tr>
+           <!--  LINHA 15 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_7_letra_12" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_12_palavra_7()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            <td><input id="palavra_14_letra_8" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_8_palavra_14()"></td> 
+            </tr>
+           <!--  LINHA 16 --> 
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>13</td>
+                <td><input id="palavra_13_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_13()"></td>
+                <td><input id="palavra_13_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_13()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td><input id="palavra_14_letra_9" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_9_palavra_14()"></td>
+            </tr>
+            <!-- LINHA 17 -->
+            <tr>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td>15</td>
+            <td><input id="palavra_15_letra_1" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_1_palavra_15()"></td>
+            <td><input id="palavra_15_letra_2" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_2_palavra_15()"></td>
+            <td><input id="palavra_15_letra_3" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_3_palavra_15()"></td>
+            <td><input id="palavra_15_letra_4" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_4_palavra_15()"></td>
+            <td><input id="palavra_15_letra_5" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_5_palavra_15()"></td>
+            <td><input id="palavra_15_letra_6" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_6_palavra_15()"></td>
+            <td><input id="palavra_15_letra_7" class="caixas" maxlength="1" style="background-color: white;" onkeyup="letra_7_palavra_15()"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+                <td class="invi"></td>
+            </tr>
+        </table>
+        <!-- FIM DA TABELA -->
+
+        <div id="finalizar_tentativa">
+            <button onclick="finalizar()">Finalizar tentativa</button>
+        </div>
+    </div>
+</div>
+<div id="final_jogo" style="display: none;">
+    <h1>OBRIGADO POR JOGAR!</h1>
+</div>
+
+    </body>
+</html>
+<script>
+    function iniciar(){ 
+    caça_palavras.style.display = "none";
+    hud_jogo.style.display = "none";
+    inicio.style.display = "none";
+    instrucoes.style.display = "block";
+    }
+
+    function comecar_jogo(){
+    caça_palavras.style.display = "block";
+    hud_jogo.style.display = "block";
+    inicio.style.display = "none";
+    instrucoes.style.display = "none";
+    }
+
+/* INICIO PALAVRA 1 */
+function letra_1_palavra_1(){
+var letra = palavra_1_letra_1.value;
+ 
+if(letra == "c"){
+    palavra_1_letra_1.style.backgroundColor = "green";
+    
+} else {
+    palavra_1_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_1(){
+var letra = palavra_1_letra_2.value;
+
+if(letra == "p"){
+    palavra_1_letra_2.style.backgroundColor = "green";
+} else {
+    palavra_1_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_1(){
+var letra = palavra_1_letra_3.value;
+
+if(letra == "u"){
+    palavra_1_letra_3.style.backgroundColor = "green";
+} else {
+    palavra_1_letra_3.style.backgroundColor = "red";
+}
+}
+
+/* FIM PALAVRA 1 */
+
+/* INICIO PALAVRA 2 */
+function letra_2_palavra_2(){
+var letra = palavra_2_letra_2.value;
+
+if(letra == "l"){
+    palavra_2_letra_2.style.backgroundColor = "green";
+} else {
+    palavra_2_letra_2.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 2 */
+
+/* INICIO PALAVRA 3 */
+function letra_1_palavra_3(){
+var letra = palavra_3_letra_1.value;
+
+if(letra == "r"){
+palavra_3_letra_1.style.backgroundColor = "green";
+} else {
+palavra_3_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_3(){
+var letra = palavra_3_letra_2.value;
+
+if(letra == "e"){
+palavra_3_letra_2.style.backgroundColor = "green";
+} else {
+palavra_3_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_3(){
+var letra = palavra_3_letra_3.value;
+
+if(letra == "g"){
+palavra_3_letra_3.style.backgroundColor = "green";
+} else {
+palavra_3_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_3(){
+var letra = palavra_3_letra_4.value;
+
+if(letra == "i"){
+palavra_3_letra_4.style.backgroundColor = "green";
+} else {
+palavra_3_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_3(){
+var letra = palavra_3_letra_5.value;
+
+if(letra == "s"){
+palavra_3_letra_5.style.backgroundColor = "green";
+} else {
+palavra_3_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_6_palavra_3(){
+var letra = palavra_3_letra_6.value;
+
+if(letra == "t"){
+palavra_3_letra_6.style.backgroundColor = "green";
+} else {
+palavra_3_letra_6.style.backgroundColor = "red";
+}
+}
+function letra_7_palavra_3(){
+var letra = palavra_3_letra_7.value;
+
+if(letra == "r"){
+palavra_3_letra_7.style.backgroundColor = "green";
+} else {
+palavra_3_letra_7.style.backgroundColor = "red";
+}
+}
+function letra_8_palavra_3(){
+var letra = palavra_3_letra_8.value;
+
+if(letra == "a"){
+palavra_3_letra_8.style.backgroundColor = "green";
+} else {
+palavra_3_letra_8.style.backgroundColor = "red";
+}
+}
+function letra_9_palavra_3(){
+var letra = palavra_3_letra_9.value;
+
+if(letra == "d"){
+palavra_3_letra_9.style.backgroundColor = "green";
+} else {
+palavra_3_letra_9.style.backgroundColor = "red";
+}
+}
+function letra_10_palavra_3(){
+var letra = palavra_3_letra_10.value;
+
+if(letra == "o"){
+palavra_3_letra_10.style.backgroundColor = "green";
+} else {
+palavra_3_letra_10.style.backgroundColor = "red";
+}
+}
+function letra_11_palavra_3(){
+var letra = palavra_3_letra_11.value;
+
+if(letra == "r"){
+palavra_3_letra_11.style.backgroundColor = "green";
+} else {
+palavra_3_letra_11.style.backgroundColor = "red";
+}
+}
+function letra_12_palavra_3(){
+var letra = palavra_3_letra_12.value;
+
+if(letra == "e"){
+palavra_3_letra_12.style.backgroundColor = "green";
+} else {
+palavra_3_letra_12.style.backgroundColor = "red";
+}
+}
+function letra_13_palavra_3(){
+var letra = palavra_3_letra_13.value;
+if(letra == "s"){
+    palavra_3_letra_13.style.backgroundColor = "green";
+} else {
+    palavra_3_letra_13.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 3 */
+
+/* INICIO PALAVRA 4 */
+function letra_2_palavra_4(){
+var letra = palavra_4_letra_2.value;
+
+if(letra == "a"){
+    palavra_4_letra_2.style.backgroundColor = "green";
+} else {
+    palavra_4_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_4(){
+var letra = palavra_4_letra_3.value;
+
+if(letra == "m"){
+    palavra_4_letra_3.style.backgroundColor = "green";
+} else {
+    palavra_4_letra_3.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 4 */
+
+/* INICIO PALAVRA 5 */
+function letra_1_palavra_5(){
+        var letra = palavra_5_letra_1.value;
+    console.log(palavra_5_letra_1.value)
+        if(letra == "r"){
+            palavra_5_letra_1.style.backgroundColor = "green";
+        } else {
+            palavra_5_letra_1.style.backgroundColor = "red";
+        }
+    }
+function letra_2_palavra_5(){
+        var letra = palavra_5_letra_2.value;
+
+        if(letra == "o"){
+            palavra_5_letra_2.style.backgroundColor = "green";
+        } else {
+            palavra_5_letra_2.style.backgroundColor = "red";
+        }
+    }
+function letra_3_palavra_5(){
+        var letra = palavra_5_letra_3.value;
+
+        if(letra == "m"){
+            palavra_5_letra_3.style.backgroundColor = "green";
+        } else {
+            palavra_5_letra_3.style.backgroundColor = "red";
+        }
+    }
+/* FIM PALAVRA 5 */
+
+/* INICIO PALAVRA 6 */
+function letra_2_palavra_6(){
+var letra = palavra_6_letra_2.value;
+
+if(letra == "p"){
+palavra_6_letra_2.style.backgroundColor = "green";
+} else {
+palavra_6_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_6(){
+var letra = palavra_6_letra_3.value;
+
+if(letra == "r"){
+palavra_6_letra_3.style.backgroundColor = "green";
+} else {
+palavra_6_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_6(){
+var letra = palavra_6_letra_4.value;
+
+if(letra == "o"){
+palavra_6_letra_4.style.backgroundColor = "green";
+} else {
+palavra_6_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_6(){
+var letra = palavra_6_letra_5.value;
+
+if(letra == "m"){
+palavra_6_letra_5.style.backgroundColor = "green";
+} else {
+palavra_6_letra_5.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 6 */
+
+/* INICIO PALAVRA 7 */
+function letra_1_palavra_7(){
+var letra = palavra_7_letra_1.value;
+
+if(letra == "m"){
+palavra_7_letra_1.style.backgroundColor = "green";
+} else {
+palavra_7_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_7(){
+var letra = palavra_7_letra_2.value;
+
+if(letra == "e"){
+palavra_7_letra_2.style.backgroundColor = "green";
+} else {
+palavra_7_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_7(){
+var letra = palavra_7_letra_4.value;
+
+if(letra == "o"){
+palavra_7_letra_4.style.backgroundColor = "green";
+} else {
+palavra_7_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_7(){
+var letra = palavra_7_letra_5.value;
+
+if(letra == "r"){
+palavra_7_letra_5.style.backgroundColor = "green";
+} else {
+palavra_7_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_9_palavra_7(){
+var letra = palavra_7_letra_9.value;
+
+if(letra == "e"){
+palavra_7_letra_9.style.backgroundColor = "green";
+} else {
+palavra_7_letra_9.style.backgroundColor = "red";
+}
+}
+function letra_11_palavra_7(){
+var letra = palavra_7_letra_11.value;
+if(letra == "a"){
+palavra_7_letra_11.style.backgroundColor = "green";
+} else {
+palavra_7_letra_11.style.backgroundColor = "red";
+}
+}
+function letra_12_palavra_7(){
+var letra = palavra_7_letra_12.value;
+
+if(letra == "s"){
+palavra_7_letra_12.style.backgroundColor = "green";
+} else {
+palavra_7_letra_12.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 7 */
+
+/* INICIO PALAVRA 8 */
+function letra_1_palavra_8(){
+var letra = palavra_8_letra_1.value;
+
+if(letra == "d"){
+    palavra_8_letra_1.style.backgroundColor = "green";
+} else {
+    palavra_8_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_8(){
+var letra = palavra_8_letra_2.value;
+
+if(letra == "u"){
+palavra_8_letra_2.style.backgroundColor = "green";
+} else {
+palavra_8_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_8(){
+var letra = palavra_8_letra_3.value;
+
+if(letra == "a"){
+palavra_8_letra_3.style.backgroundColor = "green";
+} else {
+palavra_8_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_8(){
+var letra = palavra_8_letra_4.value;
+
+if(letra == "l"){
+palavra_8_letra_4.style.backgroundColor = "green";
+} else {
+palavra_8_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_8(){
+var letra = palavra_8_letra_5.value;
+
+if(letra == "c"){
+palavra_8_letra_5.style.backgroundColor = "green";
+} else {
+palavra_8_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_6_palavra_8(){
+var letra = palavra_8_letra_6.value;
+
+if(letra == "o"){
+palavra_8_letra_6.style.backgroundColor = "green";
+} else {
+palavra_8_letra_6.style.backgroundColor = "red";
+}
+}
+function letra_7_palavra_8(){
+var letra = palavra_8_letra_7.value;
+
+if(letra == "r"){
+palavra_8_letra_7.style.backgroundColor = "green";
+} else {
+palavra_8_letra_7.style.backgroundColor = "red";
+}
+}
+function letra_8_palavra_8(){
+var letra = palavra_8_letra_8.value;
+
+if(letra == "e"){
+palavra_8_letra_8.style.backgroundColor = "green";
+} else {
+palavra_8_letra_8.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 8 */
+
+/* INICIO PALAVRA 9 */
+function letra_1_palavra_9(){
+var letra = palavra_9_letra_1.value;
+
+if(letra == "i"){
+palavra_9_letra_1.style.backgroundColor = "green";
+} else {
+palavra_9_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_9(){
+var letra = palavra_9_letra_2.value;
+
+if(letra == "7"){
+palavra_9_letra_2.style.backgroundColor = "green";
+} else {
+palavra_9_letra_2.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 9 */
+
+/* INICIO PALAVRA 10 */
+function letra_1_palavra_10(){
+var letra = palavra_10_letra_1.value;
+
+if(letra == "q"){
+palavra_10_letra_1.style.backgroundColor = "green";
+} else {
+palavra_10_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_10(){
+var letra = palavra_10_letra_2.value;
+
+if(letra == "u"){
+palavra_10_letra_2.style.backgroundColor = "green";
+} else {
+palavra_10_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_10(){
+var letra = palavra_10_letra_3.value;
+
+if(letra == "a"){
+palavra_10_letra_3.style.backgroundColor = "green";
+} else {
+palavra_10_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_10(){
+var letra = palavra_10_letra_4.value;
+
+if(letra == "d"){
+palavra_10_letra_4.style.backgroundColor = "green";
+} else {
+palavra_10_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_10(){
+var letra = palavra_10_letra_5.value;
+
+if(letra == "c"){
+palavra_10_letra_5.style.backgroundColor = "green";
+} else {
+palavra_10_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_6_palavra_10(){
+var letra = palavra_10_letra_6.value;
+
+if(letra == "o"){
+palavra_10_letra_6.style.backgroundColor = "green";
+} else {
+palavra_10_letra_6.style.backgroundColor = "red";
+}
+}
+function letra_7_palavra_10(){
+var letra = palavra_10_letra_7.value;
+
+if(letra == "r"){
+palavra_10_letra_7.style.backgroundColor = "green";
+} else {
+palavra_10_letra_7.style.backgroundColor = "red";
+}
+}
+function letra_8_palavra_10(){
+var letra = palavra_10_letra_8.value;
+if(letra == "e"){
+palavra_10_letra_8.style.backgroundColor = "green";
+} else {
+palavra_10_letra_8.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 10 */
+
+/* INICIO PALAVRA 11 */
+function letra_1_palavra_11(){
+var letra = palavra_11_letra_1.value;
+
+if(letra == "f"){
+palavra_11_letra_1.style.backgroundColor = "green";
+} else {
+palavra_11_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_11(){
+var letra = palavra_11_letra_2.value;
+
+if(letra == "l"){
+palavra_11_letra_2.style.backgroundColor = "green";
+} else {
+palavra_11_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_11(){
+var letra = palavra_11_letra_3.value;
+
+if(letra == "a"){
+palavra_11_letra_3.style.backgroundColor = "green";
+} else {
+palavra_11_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_11(){
+var letra = palavra_11_letra_5.value;
+
+if(letra == "h"){
+palavra_11_letra_5.style.backgroundColor = "green";
+} else {
+palavra_11_letra_5.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 11 */
+
+/* INICIO PALAVRA 12 */
+function letra_1_palavra_12(){
+var letra = palavra_12_letra_1.value;
+
+if(letra == "d"){
+palavra_12_letra_1.style.backgroundColor = "green";
+} else {
+palavra_12_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_12(){
+var letra = palavra_12_letra_2.value;
+
+if(letra == "m"){
+palavra_12_letra_2.style.backgroundColor = "green";
+} else {
+palavra_12_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_12(){
+var letra = palavra_12_letra_3.value;
+
+if(letra == "a"){
+palavra_12_letra_3.style.backgroundColor = "green";
+} else {
+palavra_12_letra_3.style.backgroundColor = "red";
+}
+}
+/* FIM PALABRA 12 */
+
+/* INICIO PALAVRA 13 */
+function letra_1_palavra_13(){
+var letra = palavra_13_letra_1.value;
+
+if(letra == "c"){
+palavra_13_letra_1.style.backgroundColor = "green";
+} else {
+palavra_13_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_13(){
+var letra = palavra_13_letra_2.value;
+
+if(letra == "s"){
+palavra_13_letra_2.style.backgroundColor = "green";
+} else {
+palavra_13_letra_2.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 13 */
+
+/* INICIO PALAVRA 14 */
+function letra_1_palavra_14(){
+var letra = palavra_14_letra_1.value;
+
+if(letra == "a"){
+palavra_14_letra_1.style.backgroundColor = "green";
+} else {
+palavra_14_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_14(){
+var letra = palavra_14_letra_2.value;
+
+if(letra == "d"){
+palavra_14_letra_2.style.backgroundColor = "green";
+} else {
+palavra_14_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_14(){
+var letra = palavra_14_letra_3.value;
+
+if(letra == "r"){
+palavra_14_letra_3.style.backgroundColor = "green";
+} else {
+palavra_14_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_14(){
+var letra = palavra_14_letra_5.value;
+
+if(letra == "s"){
+palavra_14_letra_5.style.backgroundColor = "green";
+} else {
+palavra_14_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_6_palavra_14(){
+var letra = palavra_14_letra_6.value;
+
+if(letra == "s"){
+palavra_14_letra_6.style.backgroundColor = "green";
+} else {
+palavra_14_letra_6.style.backgroundColor = "red";
+}
+}
+function letra_7_palavra_14(){
+var letra = palavra_14_letra_7.value;
+
+if(letra == "b"){
+palavra_14_letra_7.style.backgroundColor = "green";
+} else {
+palavra_14_letra_7.style.backgroundColor = "red";
+}
+}
+function letra_8_palavra_14(){
+var letra = palavra_14_letra_8.value;
+
+if(letra == "u"){
+palavra_14_letra_8.style.backgroundColor = "green";
+} else {
+palavra_14_letra_8.style.backgroundColor = "red";
+}
+}
+function letra_9_palavra_14(){
+var letra = palavra_14_letra_9.value;
+
+if(letra == "s"){
+palavra_14_letra_9.style.backgroundColor = "green";
+} else {
+palavra_14_letra_9.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 14 */
+
+/* INICIO PALAVRA 15 */
+function letra_1_palavra_15(){
+var letra = palavra_15_letra_1.value;
+
+if(letra == "d"){
+palavra_15_letra_1.style.backgroundColor = "green";
+} else {
+palavra_15_letra_1.style.backgroundColor = "red";
+}
+}
+function letra_2_palavra_15(){
+var letra = palavra_15_letra_2.value;
+
+if(letra == "a"){
+palavra_15_letra_2.style.backgroundColor = "green";
+} else {
+palavra_15_letra_2.style.backgroundColor = "red";
+}
+}
+function letra_3_palavra_15(){
+var letra = palavra_15_letra_3.value;
+
+if(letra == "t"){
+palavra_15_letra_3.style.backgroundColor = "green";
+} else {
+palavra_15_letra_3.style.backgroundColor = "red";
+}
+}
+function letra_4_palavra_15(){
+var letra = palavra_15_letra_4.value;
+
+if(letra == "a"){
+palavra_15_letra_4.style.backgroundColor = "green";
+} else {
+palavra_15_letra_4.style.backgroundColor = "red";
+}
+}
+function letra_5_palavra_15(){
+var letra = palavra_15_letra_5.value;
+
+if(letra == "b"){
+palavra_15_letra_5.style.backgroundColor = "green";
+} else {
+palavra_15_letra_5.style.backgroundColor = "red";
+}
+}
+function letra_6_palavra_15(){
+var letra = palavra_15_letra_6.value;
+
+if(letra == "u"){
+palavra_15_letra_6.style.backgroundColor = "green";
+} else {
+palavra_15_letra_6.style.backgroundColor = "red";
+}
+}
+function letra_7_palavra_15(){
+var letra = palavra_15_letra_7.value;
+
+if(letra == "s"){
+palavra_15_letra_7.style.backgroundColor = "green";
+} else {
+palavra_15_letra_7.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 15 */
+
+/* INICIO PALAVRA 16 */
+function letra_2_palavra_16(){
+var letra = palavra_16_letra_2.value;
+
+if(letra == "5"){
+palavra_16_letra_2.style.backgroundColor = "green";
+} else {
+palavra_16_letra_2.style.backgroundColor = "red";
+}
+}
+/* FIM PALAVRA 16 */
+
+function finalizar(){
+    hud_jogo.style.display = "none";
+    final_jogo.style.display = "block"
+}
+
+</script>
